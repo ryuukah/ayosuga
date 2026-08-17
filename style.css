@@ -1,0 +1,108 @@
+body {
+  background: #191919;
+  font-family: Arial, sans-serif;
+}
+
+/* CARD */
+.card {
+  width: 420px;
+  height: 250px;
+  margin: 100px auto;
+  perspective: 1000px;
+}
+
+.card__inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  border: 1.5px solid #aaa;
+  background: #f8f8f8;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+/* FRONT */
+.card__face--front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 100px;
+}
+
+/* BACK */
+.card__face--back {
+  transform: rotateY(180deg);
+  padding: 15px;
+}
+
+/* ID CONTENT */
+.title {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.line {
+  height: 1px;
+  background: #999;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* MAIN LAYOUT */
+.content {
+  display: flex;
+  gap: 12px;
+}
+
+/* PHOTO */
+.photo {
+  width: 90px;
+  height: 115px;
+  object-fit: cover;
+  border: 1px solid #999;
+}
+
+/* INFO */
+.info {
+  flex: 1;
+}
+
+/* ROWS */
+.item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.value {
+  text-align: right;
+}
