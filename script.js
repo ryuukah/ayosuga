@@ -1,7 +1,14 @@
-const card = document.querySelector(".card");
+document.addEventListener("DOMContentLoaded", function () {
 
-card.addEventListener("click", () => {
-  const inner = card.querySelector(".card__inner");
+  const card = document.querySelector(".card");
+  const cardInner = document.querySelector(".card__inner");
 
-  inner.classList.toggle("is-flipped");
+  if (!card || !cardInner) {
+    return;
+  }
+
+  card.addEventListener("click", function () {
+    cardInner.classList.toggle("is-flipped");
+  });
+
 });
