@@ -1,13 +1,3 @@
-/* =========================================================
-   PERFECT 10 ACADEMY
-   RESPONSIVE NOTION EMBED
-   ========================================================= */
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,18 +9,19 @@
    PAGE
    ========================================================= */
 
-html {
+html,
+body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+}
 
+html {
   background: #191919;
 }
 
 body {
-  width: 100%;
   min-height: 100vh;
 
-  margin: 0;
   padding: 20px;
 
   background: #191919;
@@ -46,14 +37,7 @@ body {
 
 
 /* =========================================================
-   EMBED CONTAINER
-
-   This is the important part for Notion.
-
-   The card is allowed to become smaller when
-   the Notion iframe becomes smaller.
-
-   The proportions NEVER change.
+   EMBED
    ========================================================= */
 
 .embed {
@@ -70,12 +54,6 @@ body {
 
 /* =========================================================
    CARD
-
-   Original design size:
-
-   840 × 500
-
-   But it can shrink proportionally.
    ========================================================= */
 
 .card {
@@ -93,7 +71,7 @@ body {
 
 
 /* =========================================================
-   FLIP INNER
+   CARD INNER
    ========================================================= */
 
 .card__inner {
@@ -128,14 +106,14 @@ body {
 
   overflow: hidden;
 
-  border-radius: 22px;
+  border-radius: 30px;
 
   background: #ffffff;
 
-  border: 2px solid #d9d9d9;
+  border: 3px solid #bdbdbd;
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35);
+    0 8px 24px rgba(0, 0, 0, 0.30);
 
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -159,9 +137,6 @@ body {
   background: #ffffff;
 }
 
-
-/* Pink border */
-
 .card__face--front::before {
   content: "";
 
@@ -174,7 +149,7 @@ body {
 
   border: 2px solid #edc5d6;
 
-  border-radius: 16px;
+  border-radius: 18px;
 
   pointer-events: none;
 }
@@ -188,6 +163,7 @@ body {
   display: block;
 
   width: 260px;
+
   max-width: 42%;
 
   height: auto;
@@ -207,9 +183,9 @@ body {
 
   z-index: 1;
 
-  padding: 42px 48px 52px;
-
   background: #ffffff;
+
+  padding: 28px 40px 28px;
 }
 
 
@@ -238,7 +214,7 @@ body {
 
   color: #333333;
 
-  font-size: clamp(22px, 3.2vw, 32px);
+  font-size: 30px;
 
   font-weight: normal;
 
@@ -248,7 +224,9 @@ body {
 
   white-space: nowrap;
 
-  margin: 0 0 18px 0;
+  margin-bottom: 12px;
+
+  flex-shrink: 0;
 }
 
 
@@ -263,7 +241,7 @@ body {
 
   flex-shrink: 0;
 
-  background: #e7a9c2;
+  background: #999999;
 
   margin-bottom: 18px;
 }
@@ -276,24 +254,24 @@ body {
 .desc {
   width: 100%;
 
-  color: #777777;
+  color: #555555;
 
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: clamp(10px, 1.35vw, 14px);
+  font-size: 14px;
 
-  line-height: 1.45;
+  line-height: 1.35;
 
-  text-align: center;
+  text-align: left;
 
-  margin: 0 0 25px 0;
+  margin-bottom: 22px;
 
   flex-shrink: 0;
 }
 
 
 /* =========================================================
-   MAIN CONTENT
+   CONTENT
    ========================================================= */
 
 .content {
@@ -305,7 +283,7 @@ body {
 
   align-items: flex-start;
 
-  gap: 42px;
+  gap: 24px;
 
   flex-shrink: 0;
 }
@@ -313,21 +291,24 @@ body {
 
 /* =========================================================
    PHOTO
+
+   Reduced from the previous version so all 4
+   information rows fit inside the card.
    ========================================================= */
 
 .photo {
-  width: 215px;
-  height: 265px;
+  width: 184px;
+  height: 235px;
 
-  flex: 0 0 215px;
+  flex: 0 0 184px;
 
   object-fit: cover;
 
   background: #f8f6f7;
 
-  border: 2px solid #dddddd;
+  border: 2px solid #bdbdbd;
 
-  padding: 5px;
+  padding: 4px;
 }
 
 
@@ -340,7 +321,7 @@ body {
 
   min-width: 0;
 
-  padding-top: 5px;
+  padding-top: 2px;
 }
 
 
@@ -351,13 +332,14 @@ body {
 .item {
   width: 100%;
 
-  min-height: 55px;
+  height: 40px;
+  min-height: 40px;
 
   display: flex;
 
   align-items: center;
 
-  border-bottom: 2px solid #dddddd;
+  border-bottom: 2px solid #d5d5d5;
 
   margin-bottom: 8px;
 }
@@ -368,13 +350,13 @@ body {
    ========================================================= */
 
 .label {
-  width: 155px;
+  width: 125px;
 
-  flex: 0 0 155px;
+  flex: 0 0 125px;
 
   color: #555555;
 
-  font-size: clamp(15px, 1.8vw, 21px);
+  font-size: 18px;
 
   font-weight: bold;
 
@@ -391,17 +373,13 @@ body {
 
   min-width: 0;
 
-  color: #333333;
+  color: #222222;
 
-  font-size: clamp(15px, 1.8vw, 21px);
+  font-size: 18px;
 
-  padding-left: 15px;
+  padding-left: 10px;
 
   white-space: nowrap;
-
-  overflow: hidden;
-
-  text-overflow: clip;
 }
 
 
@@ -413,44 +391,20 @@ body {
 
 
 /* =========================================================
-   BOTTOM PINK STRIP
+   IMPORTANT:
+   NO PINK STRIP ON THE BACK
+
+   Your reference image has a clean white bottom.
    ========================================================= */
 
-.card__face--back::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 38px;
-
-  background: #edc1d3;
-}
-
-
-/* Thin line */
-
+.card__face--back::after,
 .card__face--back::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  bottom: 38px;
-
-  height: 2px;
-
-  background: #e3a9bf;
+  display: none;
 }
 
 
 /* =========================================================
-   SMALL NOTION EMBEDS
+   SMALL NOTION EMBED
    ========================================================= */
 
 @media (max-width: 700px) {
@@ -459,50 +413,54 @@ body {
     padding: 10px;
   }
 
-  .embed {
-    width: 100%;
-  }
-
   .card__face {
-    border-radius: 16px;
+    border-radius: 24px;
   }
 
   .card__face--back {
-    padding: 28px 32px 42px;
+    padding: 24px 32px 24px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .desc {
+    font-size: 12px;
+    margin-bottom: 16px;
   }
 
   .content {
-    gap: 25px;
+    gap: 20px;
   }
 
   .photo {
-    width: 170px;
-    height: 210px;
+    width: 160px;
+    height: 205px;
 
-    flex-basis: 170px;
+    flex-basis: 160px;
   }
 
   .label {
-    width: 115px;
-    flex-basis: 115px;
+    width: 105px;
+    flex-basis: 105px;
+
+    font-size: 15px;
+  }
+
+  .value {
+    font-size: 15px;
   }
 
   .item {
-    min-height: 44px;
-  }
-
-  .card__face--back::after {
-    height: 30px;
-  }
-
-  .card__face--back::before {
-    bottom: 30px;
+    height: 36px;
+    min-height: 36px;
   }
 }
 
 
 /* =========================================================
-   VERY SMALL EMBEDS
+   VERY SMALL NOTION EMBED
    ========================================================= */
 
 @media (max-width: 500px) {
@@ -512,39 +470,46 @@ body {
   }
 
   .card__face--back {
-    padding: 20px 22px 35px;
+    padding: 20px 24px 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .desc {
+    font-size: 10px;
+    margin-bottom: 12px;
   }
 
   .content {
-    gap: 18px;
+    gap: 14px;
   }
 
   .photo {
     width: 125px;
-    height: 155px;
+    height: 160px;
 
     flex-basis: 125px;
   }
 
   .label {
-    width: 85px;
-    flex-basis: 85px;
+    width: 80px;
+    flex-basis: 80px;
+
+    font-size: 12px;
   }
 
   .value {
-    padding-left: 8px;
+    font-size: 12px;
+
+    padding-left: 6px;
   }
 
   .item {
-    min-height: 34px;
-    margin-bottom: 5px;
-  }
+    height: 30px;
+    min-height: 30px;
 
-  .card__face--back::after {
-    height: 24px;
-  }
-
-  .card__face--back::before {
-    bottom: 24px;
+    margin-bottom: 4px;
   }
 }
