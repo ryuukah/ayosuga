@@ -1,60 +1,104 @@
+/* =========================================================
+   PERFECT 10 ACADEMY
+   RESPONSIVE NOTION EMBED
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html,
-body {
-  width: 100%;
-  min-height: 100%;
-}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
 
 html {
+  width: 100%;
+  height: 100%;
+
   background: #191919;
 }
 
 body {
+  width: 100%;
   min-height: 100vh;
+
+  margin: 0;
+  padding: 20px;
+
+  background: #191919;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 20px;
-
-  background: #191919;
+  overflow: hidden;
 
   font-family: Georgia, "Times New Roman", serif;
+}
 
-  perspective: 1200px;
 
-  /* IMPORTANT FOR NOTION */
+/* =========================================================
+   EMBED CONTAINER
+
+   This is the important part for Notion.
+
+   The card is allowed to become smaller when
+   the Notion iframe becomes smaller.
+
+   The proportions NEVER change.
+   ========================================================= */
+
+.embed {
+  width: 100%;
+  max-width: 840px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   overflow: hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    CARD
-   ========================================= */
+
+   Original design size:
+
+   840 × 500
+
+   But it can shrink proportionally.
+   ========================================================= */
 
 .card {
-  width: 720px;
-  height: 410px;
+  width: 100%;
+  max-width: 840px;
 
-  flex: 0 0 720px;
+  aspect-ratio: 840 / 500;
+
+  position: relative;
 
   perspective: 1200px;
+
+  flex-shrink: 1;
 }
 
 
-/* =========================================
-   FLIP CONTAINER
-   ========================================= */
+/* =========================================================
+   FLIP INNER
+   ========================================================= */
 
 .card__inner {
-  width: 720px;
-  height: 410px;
+  width: 100%;
+  height: 100%;
 
   position: relative;
 
@@ -70,26 +114,25 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    CARD FACES
-   ========================================= */
+   ========================================================= */
 
 .card__face {
   position: absolute;
 
-  width: 720px;
-  height: 410px;
+  inset: 0;
 
-  top: 0;
-  left: 0;
-
-  border-radius: 18px;
+  width: 100%;
+  height: 100%;
 
   overflow: hidden;
 
+  border-radius: 22px;
+
   background: #ffffff;
 
-  border: 1px solid #e7e1e4;
+  border: 2px solid #d9d9d9;
 
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.35);
@@ -99,132 +142,136 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    FRONT
-   ========================================= */
+   ========================================================= */
 
 .card__face--front {
-  transform: rotateY(0deg);
-
-  z-index: 2;
-
   display: flex;
 
   justify-content: center;
   align-items: center;
 
+  transform: rotateY(0deg);
+
+  z-index: 2;
+
   background: #ffffff;
 }
+
+
+/* Pink border */
 
 .card__face--front::before {
   content: "";
 
   position: absolute;
 
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
 
   border: 2px solid #edc5d6;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   pointer-events: none;
 }
 
 
-/* =========================================
+/* =========================================================
    LOGO
-   ========================================= */
+   ========================================================= */
 
 .logo {
   display: block;
 
-  width: 220px;
-  height: auto;
+  width: 260px;
+  max-width: 42%;
 
-  max-width: none;
+  height: auto;
 
   position: relative;
 
-  z-index: 3;
+  z-index: 2;
 }
 
 
-/* =========================================
+/* =========================================================
    BACK
-   ========================================= */
+   ========================================================= */
 
 .card__face--back {
   transform: rotateY(180deg);
 
   z-index: 1;
 
-  background: #ffffff;
+  padding: 42px 48px 52px;
 
-  padding: 28px 34px 48px;
+  background: #ffffff;
 }
 
 
-/* =========================================
+/* =========================================================
    ID CARD
-   ========================================= */
+   ========================================================= */
 
 .id-card {
   width: 100%;
   height: 100%;
 
-  position: relative;
-
   display: flex;
 
   flex-direction: column;
+
+  position: relative;
 }
 
 
-/* =========================================
+/* =========================================================
    TITLE
-   ========================================= */
+   ========================================================= */
 
 .title {
   width: 100%;
 
   color: #333333;
 
-  font-size: 27px;
+  font-size: clamp(22px, 3.2vw, 32px);
 
   font-weight: normal;
 
-  line-height: 1.25;
+  line-height: 1.15;
 
   text-align: center;
 
   white-space: nowrap;
 
-  margin-bottom: 12px;
+  margin: 0 0 18px 0;
 }
 
 
-/* =========================================
+/* =========================================================
    DIVIDER
-   ========================================= */
+   ========================================================= */
 
 .line {
   width: 100%;
-  height: 1px;
+
+  height: 2px;
 
   flex-shrink: 0;
 
   background: #e7a9c2;
 
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 
-/* =========================================
+/* =========================================================
    DESCRIPTION
-   ========================================= */
+   ========================================================= */
 
 .desc {
   width: 100%;
@@ -233,21 +280,21 @@ body {
 
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 11px;
+  font-size: clamp(10px, 1.35vw, 14px);
 
-  line-height: 1.5;
+  line-height: 1.45;
 
   text-align: center;
 
-  margin-bottom: 18px;
+  margin: 0 0 25px 0;
 
   flex-shrink: 0;
 }
 
 
-/* =========================================
-   CONTENT
-   ========================================= */
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
 
 .content {
   width: 100%;
@@ -258,42 +305,37 @@ body {
 
   align-items: flex-start;
 
-  gap: 28px;
+  gap: 42px;
 
   flex-shrink: 0;
 }
 
 
-/* =========================================
+/* =========================================================
    PHOTO
-   ========================================= */
+   ========================================================= */
 
 .photo {
-  width: 165px;
-  height: 205px;
+  width: 215px;
+  height: 265px;
 
-  min-width: 165px;
-  min-height: 205px;
-
-  flex-shrink: 0;
+  flex: 0 0 215px;
 
   object-fit: cover;
 
   background: #f8f6f7;
 
-  border: 1px solid #dddddd;
+  border: 2px solid #dddddd;
 
-  padding: 4px;
+  padding: 5px;
 }
 
 
-/* =========================================
+/* =========================================================
    INFORMATION
-   ========================================= */
+   ========================================================= */
 
 .info {
-  width: 100%;
-
   flex: 1;
 
   min-width: 0;
@@ -302,69 +344,77 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    INFORMATION ROW
-   ========================================= */
+   ========================================================= */
 
 .item {
   width: 100%;
 
-  height: 39px;
-  min-height: 39px;
+  min-height: 55px;
 
   display: flex;
 
-  align-items: baseline;
+  align-items: center;
 
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
 
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 
-/* =========================================
+/* =========================================================
    LABEL
-   ========================================= */
+   ========================================================= */
 
 .label {
-  width: 125px;
+  width: 155px;
 
-  min-width: 125px;
-
-  flex-shrink: 0;
+  flex: 0 0 155px;
 
   color: #555555;
 
-  font-size: 14px;
+  font-size: clamp(15px, 1.8vw, 21px);
 
   font-weight: bold;
+
+  white-space: nowrap;
 }
 
 
-/* =========================================
+/* =========================================================
    VALUE
-   ========================================= */
+   ========================================================= */
 
 .value {
   flex: 1;
 
+  min-width: 0;
+
   color: #333333;
 
-  font-size: 15px;
+  font-size: clamp(15px, 1.8vw, 21px);
 
-  padding-left: 10px;
+  padding-left: 15px;
 
   white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: clip;
 }
+
+
+/* Pink name */
 
 .item:first-child .value {
   color: #c8789b;
 }
 
 
-/* =========================================
+/* =========================================================
    BOTTOM PINK STRIP
-   ========================================= */
+   ========================================================= */
 
 .card__face--back::after {
   content: "";
@@ -375,10 +425,13 @@ body {
   right: 0;
   bottom: 0;
 
-  height: 30px;
+  height: 38px;
 
   background: #edc1d3;
 }
+
+
+/* Thin line */
 
 .card__face--back::before {
   content: "";
@@ -388,37 +441,110 @@ body {
   left: 0;
   right: 0;
 
-  bottom: 30px;
+  bottom: 38px;
 
-  height: 1px;
+  height: 2px;
 
   background: #e3a9bf;
 }
 
 
-/* =========================================
-   NOTION / SMALL EMBED
-   ========================================= */
+/* =========================================================
+   SMALL NOTION EMBEDS
+   ========================================================= */
 
-@media (max-width: 760px) {
+@media (max-width: 700px) {
 
   body {
     padding: 10px;
-
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
   }
 
-  .card {
-    transform: scale(
-      min(
-        calc((100vw - 20px) / 720),
-        calc((100vh - 20px) / 410)
-      )
-    );
+  .embed {
+    width: 100%;
+  }
 
-    transform-origin: center center;
+  .card__face {
+    border-radius: 16px;
+  }
+
+  .card__face--back {
+    padding: 28px 32px 42px;
+  }
+
+  .content {
+    gap: 25px;
+  }
+
+  .photo {
+    width: 170px;
+    height: 210px;
+
+    flex-basis: 170px;
+  }
+
+  .label {
+    width: 115px;
+    flex-basis: 115px;
+  }
+
+  .item {
+    min-height: 44px;
+  }
+
+  .card__face--back::after {
+    height: 30px;
+  }
+
+  .card__face--back::before {
+    bottom: 30px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL EMBEDS
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+  body {
+    padding: 5px;
+  }
+
+  .card__face--back {
+    padding: 20px 22px 35px;
+  }
+
+  .content {
+    gap: 18px;
+  }
+
+  .photo {
+    width: 125px;
+    height: 155px;
+
+    flex-basis: 125px;
+  }
+
+  .label {
+    width: 85px;
+    flex-basis: 85px;
+  }
+
+  .value {
+    padding-left: 8px;
+  }
+
+  .item {
+    min-height: 34px;
+    margin-bottom: 5px;
+  }
+
+  .card__face--back::after {
+    height: 24px;
+  }
+
+  .card__face--back::before {
+    bottom: 24px;
   }
 }
