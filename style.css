@@ -185,7 +185,11 @@ body {
 
   background: #ffffff;
 
-  padding: 28px 40px 28px;
+  /*
+    Extra bottom padding leaves enough space
+    for the pink strip.
+  */
+  padding: 28px 40px 82px;
 }
 
 
@@ -202,6 +206,8 @@ body {
   flex-direction: column;
 
   position: relative;
+
+  z-index: 2;
 }
 
 
@@ -241,7 +247,7 @@ body {
 
   flex-shrink: 0;
 
-  background: #999999;
+  background: #e7a9c2;
 
   margin-bottom: 18px;
 }
@@ -291,9 +297,6 @@ body {
 
 /* =========================================================
    PHOTO
-
-   Reduced from the previous version so all 4
-   information rows fit inside the card.
    ========================================================= */
 
 .photo {
@@ -380,10 +383,9 @@ body {
   padding-left: 10px;
 
   white-space: nowrap;
+
+  overflow: hidden;
 }
-
-
-/* Pink name */
 
 .item:first-child .value {
   color: #c8789b;
@@ -391,15 +393,42 @@ body {
 
 
 /* =========================================================
-   IMPORTANT:
-   NO PINK STRIP ON THE BACK
-
-   Your reference image has a clean white bottom.
+   PINK BOTTOM STRIP
    ========================================================= */
 
-.card__face--back::after,
+.card__face--back::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 60px;
+
+  background: #edbfd3;
+
+  z-index: 1;
+}
+
+
+/* Thin line immediately above pink strip */
+
 .card__face--back::before {
-  display: none;
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 60px;
+
+  height: 1px;
+
+  background: #e3a9bf;
+
+  z-index: 1;
 }
 
 
@@ -418,7 +447,7 @@ body {
   }
 
   .card__face--back {
-    padding: 24px 32px 24px;
+    padding: 24px 32px 68px;
   }
 
   .title {
@@ -427,6 +456,7 @@ body {
 
   .desc {
     font-size: 12px;
+
     margin-bottom: 16px;
   }
 
@@ -456,6 +486,14 @@ body {
     height: 36px;
     min-height: 36px;
   }
+
+  .card__face--back::after {
+    height: 50px;
+  }
+
+  .card__face--back::before {
+    bottom: 50px;
+  }
 }
 
 
@@ -470,7 +508,7 @@ body {
   }
 
   .card__face--back {
-    padding: 20px 24px 20px;
+    padding: 20px 24px 58px;
   }
 
   .title {
@@ -479,6 +517,7 @@ body {
 
   .desc {
     font-size: 10px;
+
     margin-bottom: 12px;
   }
 
@@ -511,5 +550,13 @@ body {
     min-height: 30px;
 
     margin-bottom: 4px;
+  }
+
+  .card__face--back::after {
+    height: 40px;
+  }
+
+  .card__face--back::before {
+    bottom: 40px;
   }
 }
