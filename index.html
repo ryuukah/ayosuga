@@ -6,66 +6,101 @@
   <title>Student ID</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="card">
-  <div class="card__inner">
+  <main class="embed">
 
-    <!-- FRONT -->
-    <div class="card__face card__face--front">
-      <img src="logo.png" class="logo">
-    </div>
+    <div class="card">
 
-    <!-- BACK -->
-    <div class="card__face card__face--back">
+      <div class="card__inner">
 
-      <div class="id-card">
+        <!-- =========================
+             FRONT
+        ========================== -->
 
-        <h2 class="title">
-          Perfect 10 Academy 퍼펙트 10 아카데미
-        </h2>
+        <section class="card__face card__face--front">
 
-        <div class="line"></div>
+          <img
+            src="logo.png"
+            class="logo"
+            alt="Perfect 10 Academy"
+          >
 
-        <p class="desc">
-          This certifies that the person below is a registered student of Perfect 10 Academy / 본 문서는 아래 명시된 사람이 '퍼펙트 10 아카데미'의 등록 학생임을 증명합니다.
-        </p>
+        </section>
 
-        <div class="content">
-          <img src="kia.jpg" class="photo">
 
-          <div class="info">
+        <!-- =========================
+             BACK
+        ========================== -->
 
-            <div class="item">
-              <span class="label">Full Name</span>
-              <span class="value">Ryu Castro Soomin</span>
-            </div>
+        <section class="card__face card__face--back">
 
-            <div class="item">
-              <span class="label">Date of Birth</span>
-              <span class="value">2007 / 02 / 08</span>
-            </div>
+          <div class="id-card">
 
-            <div class="item">
-              <span class="label">Department</span>
-              <span class="value">IT / 컴퓨팅</span>
-            </div>
+            <h1 class="title">
+              Perfect 10 Academy 퍼펙트 10 아카데미
+            </h1>
 
-            <div class="item">
-              <span class="label">Year Level</span>
-              <span class="value">Year 5</span>
+            <div class="line"></div>
+
+            <p class="desc">
+              This certifies that the person below is a registered student of Perfect 10 Academy /
+              아래 사람은 퍼펙트 10 아카데미에 등록된 학생임을 증명합니다.
+            </p>
+
+
+            <div class="content">
+
+              <!-- PHOTO -->
+
+              <img
+                src="kia.jpg"
+                class="photo"
+                alt="Student photo"
+              >
+
+
+              <!-- INFORMATION -->
+
+              <div class="info">
+
+                <div class="item">
+                  <span class="label">Full Name</span>
+                  <span class="value">Ryu Castro Soomin</span>
+                </div>
+
+                <div class="item">
+                  <span class="label">Date of Birth</span>
+                  <span class="value">2007 / 02 / 08</span>
+                </div>
+
+                <div class="item">
+                  <span class="label">Department</span>
+                  <span class="value">IT / 컴퓨팅</span>
+                </div>
+
+                <div class="item">
+                  <span class="label">Year Level</span>
+                  <span class="value">Year 5</span>
+                </div>
+
+              </div>
+
             </div>
 
           </div>
-        </div>
+
+        </section>
 
       </div>
 
     </div>
 
-  </div>
-</div>
+  </main>
 
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
