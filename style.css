@@ -1,108 +1,407 @@
-body {
-  background: #191919;
-  font-family: Arial, sans-serif;
+/* ==============================
+   NOSTALGIC ARTS SCHOOL ID CARD
+   ============================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* CARD */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f7f4f5;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  perspective: 1200px;
+}
+
+
+/* ==============================
+   CARD / FLIP CONTAINER
+   ============================== */
+
 .card {
-  width: 420px;
-  height: 250px;
-  margin: 100px auto;
-  perspective: 1000px;
+  width: 720px;
+  height: 410px;
 }
 
 .card__inner {
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  cursor: pointer;
+
   position: relative;
+
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+
+  cursor: pointer;
 }
 
+/* Activated by script.js */
 .card__inner.is-flipped {
   transform: rotateY(180deg);
 }
 
+
+/* ==============================
+   FRONT + BACK
+   ============================== */
+
 .card__face {
   position: absolute;
+
   width: 100%;
   height: 100%;
-  border-radius: 18px;
-  border: 1.5px solid #aaa;
-  background: #f8f8f8;
+
   backface-visibility: hidden;
-  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 30px rgba(70, 50, 60, 0.15);
+
+  border: 1px solid #e7e1e4;
 }
 
-/* FRONT */
+
+/* ==============================
+   FRONT
+   ============================== */
+
 .card__face--front {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  background: #ffffff;
+}
+
+/* Soft pink border around front */
+.card__face--front::before {
+  content: "";
+
+  position: absolute;
+  inset: 14px;
+
+  border: 2px solid #edc5d6;
+  border-radius: 12px;
+
+  pointer-events: none;
 }
 
 .logo {
-  width: 100px;
+  width: 220px;
+  max-width: 60%;
+
+  position: relative;
+  z-index: 1;
 }
 
-/* BACK */
+
+/* ==============================
+   BACK
+   ============================== */
+
 .card__face--back {
   transform: rotateY(180deg);
-  padding: 15px;
+
+  background: #ffffff;
+
+  padding: 28px 34px 48px;
 }
 
-/* ID CONTENT */
+
+/* ==============================
+   ID CARD CONTENT
+   ============================== */
+
+.id-card {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ==============================
+   TITLE
+   ============================== */
+
 .title {
+  color: #333333;
+
+  font-size: 27px;
+  font-weight: normal;
+
+  line-height: 1.25;
+
   text-align: center;
-  font-size: 16px;
-  margin-bottom: 6px;
-}
 
-.line {
-  height: 1px;
-  background: #999;
-  margin-bottom: 8px;
-}
-
-.desc {
-  font-size: 11px;
-  color: #555;
   margin-bottom: 12px;
 }
 
-/* MAIN LAYOUT */
+
+/* Thin pink divider */
+.line {
+  width: 100%;
+  height: 1px;
+
+  background: #e7a9c2;
+
+  margin-bottom: 12px;
+}
+
+
+/* ==============================
+   DESCRIPTION
+   ============================== */
+
+.desc {
+  color: #777777;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  text-align: center;
+
+  margin-bottom: 18px;
+}
+
+
+/* ==============================
+   MAIN INFORMATION AREA
+   ============================== */
+
 .content {
   display: flex;
-  gap: 12px;
-}
+  align-items: flex-start;
 
-/* PHOTO */
-.photo {
-  width: 90px;
-  height: 115px;
-  object-fit: cover;
-  border: 1px solid #999;
-}
+  gap: 28px;
 
-/* INFO */
-.info {
   flex: 1;
 }
 
-/* ROWS */
-.item {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #ccc;
-  padding: 5px 0;
-  font-size: 12px;
+
+/* ==============================
+   PHOTO
+   ============================== */
+
+.photo {
+  width: 165px;
+  height: 205px;
+
+  object-fit: cover;
+
+  flex-shrink: 0;
+
+  background: #f8f6f7;
+
+  border: 1px solid #dddddd;
+
+  padding: 4px;
 }
 
+
+/* ==============================
+   INFORMATION
+   ============================== */
+
+.info {
+  flex: 1;
+
+  padding-top: 5px;
+}
+
+
+/* Individual information row */
+.item {
+  display: flex;
+  align-items: baseline;
+
+  min-height: 39px;
+
+  border-bottom: 1px solid #dddddd;
+
+  margin-bottom: 9px;
+}
+
+
+/* Labels */
 .label {
+  width: 125px;
+
+  flex-shrink: 0;
+
+  color: #555555;
+
+  font-size: 14px;
   font-weight: bold;
 }
 
+
+/* Values */
 .value {
-  text-align: right;
+  color: #333333;
+
+  font-size: 15px;
+
+  flex: 1;
+
+  padding-left: 10px;
+}
+
+
+/* Pink accent on values */
+.item:nth-child(1) .value {
+  color: #c8789b;
+}
+
+
+/* ==============================
+   BOTTOM PINK STRIP
+   ============================== */
+
+.card__face--back::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 30px;
+
+  background: #edc1d3;
+}
+
+
+/* Small subtle divider above pink strip */
+.card__face--back::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 30px;
+
+  height: 1px;
+
+  background: #e3a9bf;
+}
+
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 760px) {
+
+  .card {
+    width: 92vw;
+    height: calc(92vw * 0.57);
+  }
+
+  .card__face--back {
+    padding: 20px 24px 40px;
+  }
+
+  .title {
+    font-size: 21px;
+  }
+
+  .desc {
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+
+  .content {
+    gap: 18px;
+  }
+
+  .photo {
+    width: 125px;
+    height: 155px;
+  }
+
+  .label {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .value {
+    font-size: 13px;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  body {
+    padding: 15px;
+  }
+
+  .card {
+    width: 100%;
+    height: 500px;
+  }
+
+  .card__face--back {
+    padding: 18px;
+    padding-bottom: 42px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .desc {
+    font-size: 8px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .photo {
+    width: 110px;
+    height: 135px;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .item {
+    min-height: 32px;
+  }
+
+  .label {
+    width: 90px;
+    font-size: 11px;
+  }
+
+  .value {
+    font-size: 12px;
+    padding-left: 5px;
+  }
 }
